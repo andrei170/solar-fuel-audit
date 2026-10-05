@@ -104,40 +104,76 @@ footer{color:var(--mut);font-size:12.5px;text-align:center;padding:22px 0 40px;l
 </style></head><body>
 <nav class="agnav"><div class="inner"><a href="assets.html">All Assets</a><a href="./" class="on">Diagnostic</a><a href="scorecard.html">Scorecard</a><a href="discovery.html">Discovery</a></div></nav>
 <style>
-/* Force a light, readable theme over the pack's dark house stylesheet. */
-body{background:#f7f9fb !important;color:#121a24 !important}
-header{background:linear-gradient(145deg,#0b3d2e,#12623f 60%,#17865a) !important;color:#fff !important}
-header h1,header .sub,header .eyebrow{color:#fff !important}
-header .eyebrow{color:#7ef0b0 !important}
-section{background:transparent !important}
-.wrap{max-width:1080px}
-.h,h2,h3{color:#0e1a26 !important}
-p,li,td,th,div{color:#243445}
-.warn,.flag,.win,.oppnote,.card,table{background:#fff !important;border:1px solid #d9e2ec !important;
-border-radius:10px;color:#243445 !important}
-.warn{border-left:5px solid #c9a227 !important}
+/* The house stylesheet is a DARK theme driven by CSS variables. Rather than fight
+   each rule, redefine the variables so everything downstream flips at once. */
+:root{
+  --bg:#f6f8fb !important; --panel:#ffffff !important; --ink:#10131a !important;
+  --mut:#53627a !important; --line:#d7e0ea !important; --accent:#1f6feb !important;
+  --soft:#eef3f9 !important; --slate:#33475b !important;
+  --amber:#c7971a !important; --amber-d:#9c7510 !important;
+}
+html,body{background:#f6f8fb !important;color:#10131a !important}
+body *{border-color:#d7e0ea}
+
+/* every block of running text */
+p,li,td,th,span,div,dt,dd,small{color:#1f2a38 !important}
+h1,h2,h3,h4,.h,.sec,.lab{color:#0b1016 !important}
+b,strong{color:#000 !important}
+a{color:#1458c4 !important}
+.wrap{max-width:1060px}
+
+/* header stays dark, text stays white */
+header{background:linear-gradient(145deg,#07231b,#0f5438 58%,#157a52) !important}
+header *{color:#ffffff !important}
+header .eyebrow{color:#86f3bb !important;letter-spacing:1.4px}
+header .sub{color:#cfe9dd !important}
+
+/* panels */
+.warn,.flag,.win,.oppnote,.card,.calc,.q,.step,.faq{
+  background:#ffffff !important;border:1px solid #d7e0ea !important;border-radius:10px;
+  padding:18px 20px;margin-bottom:4px}
+.warn{border-left:5px solid #c7971a !important}
 .flag{border-left:5px solid #c0392b !important}
-.win{border-left:5px solid #17865a !important}
-.oppnote{border-left:5px solid #1f6feb !important;background:#f2f7ff !important}
-.lab{color:#0e1a26 !important;font-weight:800}
-b,strong{color:#06101a !important}
-table.cmp,table.spec{width:100%;border-collapse:collapse;background:#fff !important}
-table.cmp th,table.cmp td,table.spec th,table.spec td{border:1px solid #d9e2ec !important;
-padding:11px 13px;color:#243445 !important;background:#fff !important}
-table.cmp th,table.spec th{background:#0e1a26 !important;color:#fff !important;font-size:12px;
-letter-spacing:.8px;text-transform:uppercase}
-table.cmp tr:nth-child(even) td{background:#f4f8fb !important}
-tr.you td{background:#fff8e1 !important}
-td.o{text-align:right;font-weight:700;color:#06101a !important}
-.cta{background:#0b3d2e !important;color:#fff !important;border-radius:12px}
-.cta h2,.cta p{color:#fff !important}
-.cta a{color:#7ef0b0 !important}
-footer,footer *{color:#5a6b7d !important;background:transparent !important;border:0 !important}
-.big{font-size:40px;font-weight:800;color:#17865a !important;line-height:1}
-.money{background:#0b3d2e !important;color:#fff !important;border-radius:12px;padding:24px 26px;
-border:0 !important}
-.money *{color:#fff !important}
-.money .fig{font-size:46px;font-weight:800;color:#7ef0b0 !important;line-height:1.05}
+.win{border-left:5px solid #157a52 !important}
+.oppnote{background:#eff5ff !important;border-left:5px solid #1f6feb !important}
+.warn *,.flag *,.win *,.oppnote *,.card *{color:#1f2a38 !important}
+.warn b,.flag b,.win b,.oppnote b,.card b{color:#000 !important}
+.lab{font-weight:800;font-size:16px;margin-bottom:8px;display:block}
+
+/* tables */
+table,table.cmp,table.spec{width:100%;border-collapse:collapse;background:#fff !important;
+  border:1px solid #cfdae6 !important;margin-top:6px}
+table th,table td{border:1px solid #d7e0ea !important;padding:12px 13px;text-align:left;
+  vertical-align:top;background:#ffffff !important;color:#1f2a38 !important}
+table th{background:#0b1016 !important;color:#ffffff !important;font-size:12px;
+  letter-spacing:.9px;text-transform:uppercase;font-weight:700}
+table tr:nth-child(even) td{background:#f4f8fc !important}
+tr.you td{background:#fff6d9 !important}
+tr.you td b,tr.you td{color:#000 !important}
+td.o{text-align:right;font-weight:800;color:#000 !important;white-space:nowrap}
+
+/* the money block, deliberately dark */
+.money{background:linear-gradient(135deg,#07231b,#0f5438) !important;border:0 !important;
+  border-radius:12px;padding:26px 28px}
+.money *{color:#eafaf1 !important}
+.money .fig{font-size:44px;font-weight:800;color:#86f3bb !important;line-height:1.1;
+  letter-spacing:-1px}
+.money b{color:#ffffff !important}
+
+/* closing band */
+.cta{background:#07231b !important;border-radius:12px;padding:38px 24px;margin-top:10px}
+.cta *{color:#ffffff !important}
+.cta p{color:#b9d9c9 !important}
+
+/* footer disclaimers, quiet but legible */
+footer{background:transparent !important;border-top:1px solid #d7e0ea !important;margin-top:28px}
+footer *{color:#6b7b8f !important;background:transparent !important;font-size:11.5px;line-height:1.6}
+footer b{color:#56657a !important}
+
+ul.road,ul.road2{list-style:none;padding-left:0}
+ul.road li,ul.road2 li{background:#fff !important;border:1px solid #d7e0ea !important;
+  border-left:4px solid #1f6feb !important;border-radius:8px;padding:13px 16px;margin-bottom:9px}
+section{padding:26px 0}
 </style>
 
 <header>
