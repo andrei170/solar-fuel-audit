@@ -104,20 +104,47 @@ footer{color:var(--mut);font-size:12.5px;text-align:center;padding:22px 0 40px;l
 </style></head><body>
 <nav class="agnav"><div class="inner"><a href="assets.html">All Assets</a><a href="scorecard.html" class="on">Scorecard</a><a href="discovery.html">Discovery</a><a href="./">Audit</a></div></nav>
 <style>
-.grade{display:inline-block;min-width:34px;text-align:center;font-weight:800;border-radius:6px;
-padding:3px 9px;font-size:15px;color:#fff}
-.gA{background:#0f7b4f}.gB{background:#3f9a4e}.gC{background:#c08a00}
-.gD{background:#d2691e}.gE{background:#c8452b}.gF{background:#a81e1e}
-table.score{width:100%;border-collapse:collapse;font-size:15px;background:#fff}
-table.score th,table.score td{border:1px solid var(--line);padding:11px 12px;text-align:left;vertical-align:top}
-table.score th{background:var(--ink);color:#fff;font-size:12.5px;letter-spacing:.6px;text-transform:uppercase}
-table.score td.g{width:62px;text-align:center}
-table.score tr:nth-child(even) td{background:var(--soft,#f6f8fa)}
-.overall{display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:var(--ink);color:#fff;
-border-radius:12px;padding:22px 26px;margin-bottom:8px}
-.overall .big{font-size:58px;font-weight:800;line-height:1;color:#ffb02e}
-.overall p{color:#c7d4e1;max-width:60ch;margin:0}
+/* Explicit colours only. This pack uses a DARK theme, so nothing here inherits
+   var(--ink) or var(--line), which resolve to near-white and would vanish. */
+.grade{display:inline-block;min-width:38px;text-align:center;font-weight:800;border-radius:6px;
+padding:5px 11px;font-size:16px;color:#08121d !important;letter-spacing:.5px}
+.gA{background:#3fb950 !important}
+.gB{background:#5fcf6e !important}
+.gC{background:#d29922 !important}
+.gD{background:#e8702a !important;color:#fff !important}
+.gE{background:#f0603d !important;color:#fff !important}
+.gF{background:#f85149 !important;color:#fff !important}
+table.score{width:100%;border-collapse:collapse;font-size:15px;margin-top:4px;
+background:#161b22 !important;border:1px solid #2a3340}
+table.score th,table.score td{border:1px solid #2a3340 !important;padding:12px 13px;
+text-align:left;vertical-align:top;color:#e6edf3 !important;background:#161b22 !important}
+table.score th{background:#0b1016 !important;color:#9aa7b4 !important;font-size:12px;
+letter-spacing:.9px;text-transform:uppercase;font-weight:700}
+table.score td.g{width:72px;text-align:center;background:#11161d !important}
+table.score tr:nth-child(even) td{background:#1b222c !important}
+table.score tr:nth-child(even) td.g{background:#141a22 !important}
+table.score b{color:#fff !important}
+.overall{display:flex;gap:26px;align-items:center;flex-wrap:wrap;
+background:linear-gradient(135deg,#161b22,#1d2630) !important;
+border:1px solid #2a3340;border-left:6px solid #d29922;
+border-radius:12px;padding:24px 28px;margin-bottom:8px}
+.overall .big{font-size:62px;font-weight:800;line-height:1;color:#d29922 !important}
+.overall p{color:#c3ced9 !important;max-width:62ch;margin:0}
+.overall p b{color:#fff !important}
+.key{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 4px;font-size:13px;color:#9aa7b4}
+.key span.grade{font-size:13px;min-width:30px;padding:3px 8px}
 </style>
+
+<section style="padding-top:18px">
+  <div class="wrap">
+    <div class="key">
+      <span class="grade gA">A</span><span class="grade gB">B</span><span class="grade gC">C</span>
+      <span class="grade gD">D</span><span class="grade gE">E</span><span class="grade gF">F</span>
+      <span style="align-self:center">&nbsp;A is best, F is worst. &ldquo;?&rdquo; means we could not
+      measure it rather than that it failed.</span>
+    </div>
+  </div>
+</section>
 
 <header>
   <div class="wrap">
