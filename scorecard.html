@@ -102,37 +102,76 @@ footer{color:var(--mut);font-size:12.5px;text-align:center;padding:22px 0 40px;l
 .agnav a.ext:hover{color:#fff}
 @media(max-width:560px){.agnav .inner{padding:0 14px}.agnav a{padding:10px 9px;font-size:13px}}
 </style></head><body>
-<nav class="agnav"><div class="inner"><a href="assets.html">All Assets</a><a href="scorecard.html" class="on">Scorecard</a><a href="discovery.html">Discovery</a><a href="./">Audit</a></div></nav>
+<nav class="agnav"><div class="inner"><a href="assets.html">All Assets</a><a href="./">Diagnostic</a><a href="scorecard.html" class="on">Scorecard</a><a href="discovery.html">Discovery</a></div></nav>
 <style>
-/* Explicit colours only. This pack uses a DARK theme, so nothing here inherits
-   var(--ink) or var(--line), which resolve to near-white and would vanish. */
-.grade{display:inline-block;min-width:38px;text-align:center;font-weight:800;border-radius:6px;
-padding:5px 11px;font-size:16px;color:#08121d !important;letter-spacing:.5px}
-.gA{background:#3fb950 !important}
-.gB{background:#5fcf6e !important}
-.gC{background:#d29922 !important}
-.gD{background:#e8702a !important;color:#fff !important}
-.gE{background:#f0603d !important;color:#fff !important}
-.gF{background:#f85149 !important;color:#fff !important}
-table.score{width:100%;border-collapse:collapse;font-size:15px;margin-top:4px;
-background:#161b22 !important;border:1px solid #2a3340}
-table.score th,table.score td{border:1px solid #2a3340 !important;padding:12px 13px;
-text-align:left;vertical-align:top;color:#e6edf3 !important;background:#161b22 !important}
-table.score th{background:#0b1016 !important;color:#9aa7b4 !important;font-size:12px;
-letter-spacing:.9px;text-transform:uppercase;font-weight:700}
-table.score td.g{width:72px;text-align:center;background:#11161d !important}
-table.score tr:nth-child(even) td{background:#1b222c !important}
-table.score tr:nth-child(even) td.g{background:#141a22 !important}
-table.score b{color:#fff !important}
+/* The house stylesheet is a DARK theme driven by CSS variables. Redefine the
+   variables so everything flips to light at once, then style the grades on top. */
+:root{
+  --bg:#f6f8fb !important; --panel:#ffffff !important; --ink:#10131a !important;
+  --mut:#53627a !important; --line:#d7e0ea !important; --accent:#1f6feb !important;
+  --soft:#eef3f9 !important; --slate:#33475b !important;
+  --amber:#c7971a !important; --amber-d:#9c7510 !important;
+}
+html,body{background:#f6f8fb !important;color:#10131a !important}
+p,li,td,th,span,div,small{color:#1f2a38 !important}
+h1,h2,h3,h4,.h,.sec,.lab{color:#0b1016 !important}
+b,strong{color:#000 !important}
+a{color:#1458c4 !important}
+.wrap{max-width:1060px}
+header{background:linear-gradient(145deg,#07231b,#0f5438 58%,#157a52) !important}
+header *{color:#ffffff !important}
+header .eyebrow{color:#86f3bb !important;letter-spacing:1.4px}
+header .sub{color:#cfe9dd !important}
+.win,.warn,.flag,.oppnote{background:#fff !important;border:1px solid #d7e0ea !important;
+  border-radius:10px;padding:18px 20px}
+.win{border-left:5px solid #157a52 !important}
+.warn{border-left:5px solid #c7971a !important}
+.flag{border-left:5px solid #c0392b !important}
+.oppnote{background:#eff5ff !important;border-left:5px solid #1f6feb !important}
+.win *,.warn *,.flag *,.oppnote *{color:#1f2a38 !important}
+.win b,.warn b,.flag b,.oppnote b{color:#000 !important}
+.lab{font-weight:800;font-size:16px;margin-bottom:8px;display:block}
+.cta{background:#07231b !important;border-radius:12px;padding:38px 24px}
+.cta *{color:#fff !important}
+.cta p{color:#b9d9c9 !important}
+footer{border-top:1px solid #d7e0ea !important;margin-top:28px}
+footer *{color:#6b7b8f !important;background:transparent !important;font-size:11.5px;line-height:1.6}
+ul.road,ul.road2{list-style:none;padding-left:0}
+ul.road li,ul.road2 li{background:#fff !important;border:1px solid #d7e0ea !important;
+  border-left:4px solid #1f6feb !important;border-radius:8px;padding:13px 16px;margin-bottom:9px}
+section{padding:26px 0}
+
+/* GRADES — strong fills, dark text on light fills, white on dark fills */
+.grade{display:inline-block;min-width:40px;text-align:center;font-weight:900;border-radius:6px;
+  padding:6px 12px;font-size:16px;letter-spacing:.5px;border:0 !important}
+.gA{background:#0a7a3d !important;color:#ffffff !important}
+.gB{background:#4a9c4e !important;color:#ffffff !important}
+.gC{background:#b07d00 !important;color:#ffffff !important}
+.gD{background:#cc6314 !important;color:#ffffff !important}
+.gE{background:#c4432a !important;color:#ffffff !important}
+.gF{background:#a01818 !important;color:#ffffff !important}
+
+table.score{width:100%;border-collapse:collapse;font-size:15px;margin-top:6px;
+  background:#fff !important;border:1px solid #cfdae6 !important}
+table.score th,table.score td{border:1px solid #d7e0ea !important;padding:12px 13px;
+  text-align:left;vertical-align:top;color:#1f2a38 !important;background:#ffffff !important}
+table.score th{background:#0b1016 !important;color:#ffffff !important;font-size:12px;
+  letter-spacing:.9px;text-transform:uppercase;font-weight:700}
+table.score td.g{width:78px;text-align:center;background:#f4f8fc !important}
+table.score tr:nth-child(even) td{background:#f4f8fc !important}
+table.score tr:nth-child(even) td.g{background:#eaf1f8 !important}
+table.score b{color:#000 !important}
+
 .overall{display:flex;gap:26px;align-items:center;flex-wrap:wrap;
-background:linear-gradient(135deg,#161b22,#1d2630) !important;
-border:1px solid #2a3340;border-left:6px solid #d29922;
-border-radius:12px;padding:24px 28px;margin-bottom:8px}
-.overall .big{font-size:62px;font-weight:800;line-height:1;color:#d29922 !important}
-.overall p{color:#c3ced9 !important;max-width:62ch;margin:0}
-.overall p b{color:#fff !important}
-.key{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 4px;font-size:13px;color:#9aa7b4}
-.key span.grade{font-size:13px;min-width:30px;padding:3px 8px}
+  background:linear-gradient(135deg,#07231b,#0f5438) !important;
+  border:0 !important;border-left:7px solid #b07d00 !important;
+  border-radius:12px;padding:26px 30px;margin-bottom:8px}
+.overall *{color:#eafaf1 !important}
+.overall .big{font-size:64px;font-weight:900;line-height:1;color:#ffc53d !important}
+.overall p{max-width:62ch;margin:0}
+.overall b{color:#ffffff !important}
+.key{display:flex;gap:9px;flex-wrap:wrap;margin:18px 0 6px;font-size:13.5px;align-items:center}
+.key span.grade{font-size:13px;min-width:32px;padding:4px 9px}
 </style>
 
 <section style="padding-top:18px">
